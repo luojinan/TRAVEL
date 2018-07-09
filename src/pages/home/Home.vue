@@ -3,7 +3,8 @@
 		<home-header></home-header>
 		<home-swiper></home-swiper>
 		<home-icons></home-icons>
-		test
+		<home-recommend></home-recommend>
+		<home-page></home-page>
 	</div>
 </template>
 
@@ -13,13 +14,17 @@
 	import HomeHeader from './components/Header'
 	import HomeSwiper from './components/HomeSwiper'
 	import HomeIcons from './components/Icons'
+	import HomeRecommend from './components/Recommend'
+	import HomePage from './components/Page'
 	export default {
 		name:'Home',
 		//注册组件
 		components:{
 			HomeHeader,
 			HomeSwiper,
-			HomeIcons
+			HomeIcons,
+			HomeRecommend,
+			HomePage
 		}
 	}
 </script>

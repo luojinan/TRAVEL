@@ -51,7 +51,7 @@
 		border-radius:.1rem*/
 </script>
 
-<style scope>
+<style >
 	.header{
 		display: flex;
 		line-height:.86rem;
