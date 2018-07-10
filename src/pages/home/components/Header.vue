@@ -7,15 +7,19 @@
 			<span class="iconfont">&#xe632;</span> 输入搜索的内容
 		</div>
 		<div class="right">
-			城市<span class="iconfont icon-arrow">&#xe6aa;</span>
+			{{city}}<span class="iconfont icon-arrow">&#xe6aa;</span>
 		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-		name:'Home'
+		name:'Home',
+		props:{
+			city:String
+		}
 	}
+
 	//这些组件的样式会被其他组件获取到？设置局部style
 	//为什么stylus会突然有效又突然无效
 	/*

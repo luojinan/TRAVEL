@@ -1,7 +1,7 @@
 <template>
 	<div class="wrapper">
 		<swiper :options="swiperOption" :not-next-tick="notNextTick" >
-		    <swiper-slide v-for="item of srcs" :key="item.id">
+		    <swiper-slide v-for="item of list" :key="item.id">
 		    	<img class="swiper-img" :src="item.imgUrl" />
 		    </swiper-slide>
 		    <div calss="swiper-pagination"  slot="pagination"></div>
@@ -20,12 +20,10 @@
 				},
 				notNextTick: true,
 				//用本地图片不行？？？
-				srcs:[
-					{id:'00001',imgUrl:'http://i0.hdslb.com/bfs/archive/3a318d271175b4a8c80ed6c9e19801339be6c59b.jpg'},
-					{id:'00002',imgUrl:'http://i0.hdslb.com/bfs/archive/231eeec338447f0c2cf65a95a782dd55e2e32eb9.jpg'},
-					{id:'00003',imgUrl:'http://i0.hdslb.com/bfs/archive/2193572fb145db4bb638c7f7fb1ac42ba36465aa.jpg'}
-				],
 			}
+		},
+		props:{
+			list:Array
 		}
 	}
 </script>

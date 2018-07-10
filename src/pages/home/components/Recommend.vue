@@ -19,26 +19,10 @@ export default{
 	name:'HomeRecommend',
 	data:function(){
 		return {
-			list:[{
-				id:'00001',
-				title:'咬人猫',
-				desc:'妖精的尾巴OP15❤MASAYUME CHASING o(*≧▽≦)ツ',
-				imgSrc:'https://i0.hdslb.com/bfs/archive/6c70c817d7164387bf1422a20a86fe2b15ab850e.jpg@144w_90h.webp%22'
-			},
-			{
-				id:'00002',
-				title:'咬人猫',
-				desc:'妖精的尾巴OP15❤MASAYUME CHASING o(*≧▽≦)ツ',
-				imgSrc:'https://i0.hdslb.com/bfs/archive/6c70c817d7164387bf1422a20a86fe2b15ab850e.jpg@144w_90h.webp%22'
-			},
-			{
-				id:'00003',
-				title:'咬人猫',
-				desc:'妖精的尾巴OP15❤MASAYUME CHASING o(*≧▽≦)ツ',
-				imgSrc:'https://i0.hdslb.com/bfs/archive/6c70c817d7164387bf1422a20a86fe2b15ab850e.jpg@144w_90h.webp%22'
-			}
-			]
 		}
+	},
+	props:{
+		list:Array
 	}
 }
 </script>
