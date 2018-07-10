@@ -46,7 +46,7 @@
 			},
 			//成功过去数据的回调函数
 			getHomeInfoSucc(res){
-				console.log(res)
+				//console.log(res)
 				const data = res.data.data
 
 				this.headerList = data.city
