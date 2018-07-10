@@ -1,48 +1,89 @@
 <template>
-	<div class="city-list">
-		<div class="city-list__nowcity ">
-			<div class="city-list__title">当前城市</div>
-			<div class="city-list__button--list">
-				<div class="city-list__button--wapper">
-					<div class="city-list__button">广州</div>
+	<div class="city-list" ref="wrapper">
+		<div>
+			<div class="city-list__nowcity ">
+				<div class="city-list__title">当前城市</div>
+				<div class="city-list__button--list">
+					<div class="city-list__button--wapper">
+						<div class="city-list__button">广州</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="city-list__hotcity">
-			<div class="city-list__title">热门城市</div>
-			<div class="city-list__button--list">
-				<div class="city-list__button--wapper">
-					<div class="city-list__button">广州</div>
-				</div>
-				<div class="city-list__button--wapper">
-					<div class="city-list__button">广州</div>
-				</div>
-				<div class="city-list__button--wapper">
-					<div class="city-list__button">广州</div>
-				</div>
-				<div class="city-list__button--wapper">
-					<div class="city-list__button">广州</div>
-				</div>
-				<div class="city-list__button--wapper">
-					<div class="city-list__button">广州</div>
+			<div class="city-list__hotcity">
+				<div class="city-list__title">热门城市</div>
+				<div class="city-list__button--list">
+					<div class="city-list__button--wapper">
+						<div class="city-list__button">广州</div>
+					</div>
+					<div class="city-list__button--wapper">
+						<div class="city-list__button">广州</div>
+					</div>
+					<div class="city-list__button--wapper">
+						<div class="city-list__button">广州</div>
+					</div>
+					<div class="city-list__button--wapper">
+						<div class="city-list__button">广州</div>
+					</div>
+					<div class="city-list__button--wapper">
+						<div class="city-list__button">广州</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="city-list__abc">
-			<div class="city-list__title">A</div>
-			<div class="city-list__item--list">
-				<div class="city-list__item border-bottom">阿拉尔</div>
-				<div class="city-list__item border-bottom">阿拉尔</div>
-				<div class="city-list__item border-bottom">阿拉尔</div>
-				<div class="city-list__item border-bottom">阿拉尔</div>
+			<div class="city-list__abc">
+				<div class="city-list__title">A</div>
+				<div class="city-list__item--list">
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+				</div>
+				<div class="city-list__title">A</div>
+				<div class="city-list__item--list">
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+				</div>
+				<div class="city-list__title">A</div>
+				<div class="city-list__item--list">
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+				</div>
+				<div class="city-list__title">A</div>
+				<div class="city-list__item--list">
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+					<div class="city-list__item border-bottom">阿拉尔</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
+
 export default {
 	name:'CityList',
+	//挂载实例类插件，写生命周期中
+	mounted(){
+		this.scroll = new BScroll(this.$refs.wrapper)
+	}
 }
 </script>
 
@@ -57,7 +98,7 @@ export default {
 		bottom: 0;
 	}
 	.city-list__title{
-		line-height: .44rem;
+		line-height: .54rem;
 		padding-left: .2rem;
 		font-size: .26rem;
 		color: #666;
