@@ -1,6 +1,6 @@
 <template>
 	<div class="city-search">
-		<input class="city-search_search" type="text" placeholder="输入城市名或拼音" />
+		<input class="city-search__search" type="text" placeholder="输入城市名或拼音" />
 	</div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
 		background-color: #00bcd4;
 		padding: 0 .2rem .1rem .2rem;
 	}
-	.city-search_search{
+	.city-search__search{
 		/*使区域不溢出*/
 		box-sizing: border-box;
 		width: 100%;
