@@ -6,9 +6,11 @@
 		<div class="input">
 			<span class="iconfont">&#xe632;</span> 输入搜索的内容
 		</div>
+		<router-link to="/city">
 		<div class="right">
 			{{city}}<span class="iconfont icon-arrow">&#xe6aa;</span>
 		</div>
+		</router-link>
 	</div>
 </template>
 
@@ -75,6 +77,7 @@
 		width:1.24rem;
 		float: right;
 		text-align:center;
+		color: #fff;
 	}
 	.icon-arrow{
 		font-size:.24rem;

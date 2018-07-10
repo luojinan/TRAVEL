@@ -22,7 +22,7 @@
 		name:'Home',
 		//注册组件
 		components:{
-			HomeHeader,
+			HomeHeader,	
 			HomeSwiper,
 			HomeIcons,
 			HomeRecommend,
