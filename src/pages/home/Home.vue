@@ -17,6 +17,7 @@
 	import HomeRecommend from './components/Recommend'
 	import HomePage from './components/Page'
 	import axios from 'axios'
+	import { mapState } from 'vuex'
 
 	export default {
 		name:'Home',
@@ -33,8 +34,13 @@
 				swiperList:[],
 				iconList:[],
 				recommendList:[],
-				pageList:[]
+				pageList:[],
+
+				lastCity:''
 			}
+		},
+		computed:{
+			...mapState({city:'city'})
 		},
 		methods:{
 			//axios获取数据方法
@@ -58,7 +64,16 @@
 
 		//生命周期，一加载就执行方法
 		mounted(){
+			this.lastCity = this.city
 			this.getHomeInfo()
+		},
+		/*先直接<keep-alive>断了页面切换重新获取数据*/
+		/*判断是否切换了城市来判断是否重新获取ajax数据*/
+		//这个生命周期在页面切换的时候就会执行，而mounted会存入内存中不执行
+		activated(){
+			if(this.lastCity !== this.city){
+				this.getHomeInfo()
+			}
 		}
 	}
 </script>
