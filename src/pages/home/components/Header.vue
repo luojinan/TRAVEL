@@ -8,50 +8,24 @@
 		</div>
 		<router-link to="/city">
 		<div class="right">
-			{{this.$store.state.city}}<span class="iconfont icon-arrow">&#xe6aa;</span>
+			{{this.city}}<span class="iconfont icon-arrow">&#xe6aa;</span>
 		</div>
 		</router-link>
 	</div>
 </template>
 
 <script>
-	export default {
-		name:'Home',
-	}
+import{ mapState } from 'vuex'
+
+export default {
+	name:'Home',
+	computed:{
+		...mapState({city:'city'})
+	},
+}
 
 	//这些组件的样式会被其他组件获取到？设置局部style
 	//为什么stylus会突然有效又突然无效
-	/*
-	<style scope>
-	@import '~styles/varibles.styl'
-	.header
-		display: flex
-		line-height:.86rem
-		color:#fff
-		background-color: $bgColor
-	.left
-		width:.64rem
-		float: left
-		text-align:center
-		.icon-back
-			text-align:center
-			font-size:.4rem
-	.right
-		width:1.24rem
-		float: right
-		text-align:center
-		.icon-arrow
-			font-size:.24rem
-	.input
-		flex:1
-		height:.64rem
-		line-height:.64rem
-		padding-left:.2rem
-		margin-top:.12rem
-		margin-left:.2rem
-		color:#ccc
-		background-color:#fff
-		border-radius:.1rem*/
 </script>
 
 <style >
@@ -71,14 +45,12 @@
 		font-size:.4rem;
 	}
 	.right{
-		width:1.24rem;
+		min-width:1.04rem;
+		padding-left: 0.1rem;
 		float: right;
 		text-align:center;
 		color: #fff;
-
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
+		
 	}
 	.icon-arrow{
 		font-size:.24rem;
