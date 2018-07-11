@@ -17,7 +17,12 @@
 					</div>
 				</div>
 			</div>
-			<div class="city-list__abc" v-for="(item,key) of list" :key="key">
+			<div 
+				class="city-list__abc" 
+				v-for="(item,key) of list" 
+				:key="key"
+				:ref="key"
+			>
 				<div class="city-list__title">{{key}}</div>
 				<div class="city-list__item--list">
 					<div 
@@ -41,12 +46,26 @@ export default {
 	props:{
 		hotCities:Array,
 		list:Object,
+		letter:String
 	},
 
 	//挂载实例类插件，写生命周期中
 	mounted(){
 		this.scroll = new BScroll(this.$refs.wrapper)
-	}
+	},
+	//显示区域不是靠触发，而是靠传递来的数据
+	watch:{
+		letter(){
+			//console.log(this.letter)
+			//better-scroll插件提供了 this.scroll.scrollToElement() 自动滚动到DOM区域
+			if(this.letter){
+				//获取对应letter字母的DOM区域(数组),因为key值是局部变量，用letter最好，有this所以用[this.letter]
+				const element = this.$refs[this.letter][0]
+				//console.log(element)
+				this.scroll.scrollToElement(element);
+			}
+		}
+	},
 }
 </script>
 

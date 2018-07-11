@@ -2,8 +2,17 @@
 	<div>
 		<city-header></city-header>
 		<city-search></city-search>
-		<city-list :hotCities="hotCities" :list="cities"></city-list>
-		<city-alphabet :list="cities"></city-alphabet>
+		<city-list 
+			:hotCities="hotCities" 
+			:list="cities"
+			:letter="letter"
+		>
+		</city-list>
+		<city-alphabet 
+			:list="cities"
+			@change="handleLetterChange"
+		>
+		</city-alphabet>
 	</div>
 </template>
 
@@ -25,7 +34,8 @@ export default {
 	data:function(){
 		return {
 			hotCities:[],
-			cities:{}
+			cities:{},
+			letter:''
 		}
 	},
 
@@ -39,7 +49,13 @@ export default {
 			const data = res.data.data
 			this.hotCities = data.hotCities
 			this.cities = data.cities
+		},
+
+		//接收子组件传递的数据，文本
+		handleLetterChange(letter){
+			this.letter = letter
 		}
+
 	},
 	//生命周期挂载ajax
 	mounted(){
