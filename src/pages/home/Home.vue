@@ -46,7 +46,7 @@
 			//axios获取数据方法
 			getHomeInfo(){
 				//get  then回调
-				axios.get('static/mock/index.json')
+				axios.get('static/mock/index.json?city=' + this.city)
 					.then(this.getHomeInfoSucc)
 			},
 			//成功过去数据的回调函数
