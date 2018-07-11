@@ -5,7 +5,7 @@
 				<div class="city-list__title">当前城市</div>
 				<div class="city-list__button--list">
 					<div class="city-list__button--wapper">
-						<div class="city-list__button">广州</div>
+						<div class="city-list__button">{{this.$store.state.city}}</div>
 					</div>
 				</div>
 			</div>
@@ -13,7 +13,7 @@
 				<div class="city-list__title">热门城市</div>
 				<div class="city-list__button--list">
 					<div class="city-list__button--wapper" v-for="item of hotCities" :key="item.id">
-						<div class="city-list__button">{{item.name}}</div>
+						<div class="city-list__button" @click="handleCityButton(item.name)">{{item.name}}</div>
 					</div>
 				</div>
 			</div>
@@ -29,6 +29,7 @@
 						class="city-list__item border-bottom" 
 						v-for="innerItem of item"
 						:key="innerItem.id"
+						@click="handleCityButton(innerItem.name)"
 					>
 					{{innerItem.name}}
 					</div>
@@ -48,7 +49,12 @@ export default {
 		list:Object,
 		letter:String
 	},
-
+	methods:{
+		handleCityButton(city){
+			this.$store.dispatch('changeCity',city)
+			this.$router.push('/')
+		}
+	},
 	//挂载实例类插件，写生命周期中
 	mounted(){
 		this.scroll = new BScroll(this.$refs.wrapper)

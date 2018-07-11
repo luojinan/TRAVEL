@@ -8,7 +8,7 @@
 		</div>
 		<router-link to="/city">
 		<div class="right">
-			{{city}}<span class="iconfont icon-arrow">&#xe6aa;</span>
+			{{this.$store.state.city}}<span class="iconfont icon-arrow">&#xe6aa;</span>
 		</div>
 		</router-link>
 	</div>
@@ -17,9 +17,6 @@
 <script>
 	export default {
 		name:'Home',
-		props:{
-			city:String
-		}
 	}
 
 	//这些组件的样式会被其他组件获取到？设置局部style
@@ -78,6 +75,10 @@
 		float: right;
 		text-align:center;
 		color: #fff;
+
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 	.icon-arrow{
 		font-size:.24rem;

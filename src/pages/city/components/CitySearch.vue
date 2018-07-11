@@ -13,6 +13,7 @@
 					class="city-search__list--item border-bottom"
 					v-for="item of showCities"
 					:key="item.id"
+					@click="handleCitySearch(item.name)"
 				>
 				{{item.name}}
 				</li>
@@ -41,6 +42,13 @@ export default {
 			keyword:'',
 			showCities:[],
 			timer:null
+		}
+	},
+	methods:{
+		handleCitySearch(city){
+			this.$store.dispatch('changeCity',city)
+			//返回首页，路由，可不在html中操作（循环多个的跳转）
+			this.$router.push('/')
 		}
 	},
 	computed:{

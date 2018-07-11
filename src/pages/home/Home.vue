@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<home-header :city="headerList"></home-header>
+		<home-header></home-header>
 		<home-swiper :list="swiperList"></home-swiper>
 		<home-icons :list="iconList"></home-icons>
 		<home-recommend :list="recommendList"></home-recommend>
@@ -30,7 +30,6 @@
 		},
 		data:function(){
 			return {
-				headerList:'',
 				swiperList:[],
 				iconList:[],
 				recommendList:[],
