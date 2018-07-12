@@ -1,5 +1,5 @@
 <template>
-	<div class="detail-header" @click="handleClick">
+	<div class="detail-header">
 		<router-link 
 			tag="div" 
 			to="/"
@@ -60,20 +60,17 @@ export default {
 			}
 			console.log(this.opacityStyle.opacity)
 		},
-		handleClick(){
-			console.log('tesy')
-		}
 	},
 	//因为使用<keep-alive>所以页面一展示就执行，而mounted不会执行，即之后的生命周期大部分用这个
 	activated(){
 		window.addEventListener('scroll',this.handleScroll)
-		window.addEventListener('click',this.handleClick)
+	//	window.addEventListener('click',this.handleClick)
 	},
 	//滚动事件是全局事件，不是绑定在DOM或者组件上的事件，会污染其他页面
 	//对全局事件的解绑
-	//deactivated(){
-	//	window.removeEventListener('scroll',this.handleScroll)
-	//}
+	deactivated(){
+		window.removeEventListener('scroll',this.handleScroll)
+	}
 }
 </script>
 
