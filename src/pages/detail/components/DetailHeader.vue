@@ -43,6 +43,7 @@ export default {
 		handleScroll(){
 			//获取页面滚动距离top的值
 			const top = document.documentElement.scrollTop;
+			//console.log(top);
 			//判断top值在某段区域 执行的方法，:style修改透明度
 			if(top > 40){
 				let opacity = top/120
@@ -61,6 +62,11 @@ export default {
 	//因为使用<keep-alive>所以页面一展示就执行，而mounted不会执行，即之后的生命周期大部分用这个
 	activated(){
 		window.addEventListener('scroll',this.handleScroll)
+	},
+	//滚动事件是全局事件，不是绑定在DOM或者组件上的事件，会污染其他页面
+	//对全局事件的解绑
+	deactivated(){
+		window.removeEventListener('scroll',this.handleScroll)
 	}
 }
 </script>
