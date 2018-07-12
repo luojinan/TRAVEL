@@ -15,17 +15,21 @@
 			</div>
 		</div>
 		<!--画廊展示页面，做成公用组件形式-->
-		<common-gallary :gallaryImgs="gallaryImgs" v-show="isShow" @close="handelGallaryClose"></common-gallary>
+		<fade-animation>
+			<common-gallary :gallaryImgs="gallaryImgs" v-show="isShow" @close="handelGallaryClose"></common-gallary>
+		</fade-animation>
 	</div>
 </template>
 
 <script>
 import CommonGallary from 'common/gallary'
+import FadeAnimation from 'common/fade/FadeAnimation'
 
 export default {
 	name:'DetailBanner',
 	components:{
 		CommonGallary,
+		FadeAnimation
 	},
 	props:{
 		sightName:String,
