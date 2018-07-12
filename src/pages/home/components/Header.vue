@@ -22,6 +22,17 @@ export default {
 	computed:{
 		...mapState({city:'city'})
 	},
+	methods:{
+		handleScroll(){
+			console.log('scroll')
+		}
+	},
+	//activated(){
+	//	window.addEventListener('scroll',this.handleScroll)
+	//},
+	//deactivated(){
+	//	window.removeEventListener('scroll',this.handleScroll)
+	//}
 }
 
 	//这些组件的样式会被其他组件获取到？设置局部style

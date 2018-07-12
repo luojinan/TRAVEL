@@ -20,5 +20,10 @@ export default new Router({
       path: '/detail/:id',
       name: 'Detail',
       component: Detail
-    }]
+    }],
+    //解除路由页面间滚动记忆
+    //在vue官网，生态系统，router部分查阅即可
+    scrollBehavior(to,from,savedPosition){
+      return { x:0, y:0 }
+    }
 })
