@@ -89,6 +89,7 @@ export default {
 		font-size: .4rem;
 	}
 	.detail-header__fixed{
+		z-index: 2;	/*解决没有header没有覆盖内容（透明度限制了最高0.8）*/
 		position: fixed;
 		top:0;
 		left: 0;
