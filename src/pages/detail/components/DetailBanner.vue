@@ -3,19 +3,19 @@
 		<div class="detail-banner" @click="handelBannerClick">
 			<img 
 			class="detail-banner__img" 
-			src="http://i2.hdslb.com/bfs/archive/42d98924c225a9e15668aa82e9b05867897da5f1.jpg" />
+			:src="bannerImg" />
 			<div class="detail-banner__info">
 				<div class="detail-banner__info--title">
-					夏日吃瓜蹦迪乘凉大会！20位知名舞见的周末大联欢~
+					{{sightName}}
 				</div>
 				<div class="detail-banner__info--number">
 					<span class="iconfont">&#xe632;</span>
-					39
+					{{gallaryImgs.length}}
 				</div>
 			</div>
 		</div>
 		<!--画廊展示页面，做成公用组件形式-->
-		<common-gallary v-show="isShow" @close="handelGallaryClose"></common-gallary>
+		<common-gallary :gallaryImgs="gallaryImgs" v-show="isShow" @close="handelGallaryClose"></common-gallary>
 	</div>
 </template>
 
@@ -26,7 +26,12 @@ export default {
 	name:'DetailBanner',
 	components:{
 		CommonGallary,
-	},	
+	},
+	props:{
+		sightName:String,
+		bannerImg:String,
+		gallaryImgs:Array
+	},
 	data:function(){
 		return {
 			isShow:false

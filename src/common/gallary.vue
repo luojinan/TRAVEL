@@ -2,8 +2,8 @@
 	<div class="common-gallary" @click="handelGallaryClick">
 		<div class="common-gallary__swiper">
 			<swiper :options="swiperOption" >
-			    <swiper-slide v-for="item of list" :key="item.id">
-			    	<img class="common-gallary__swiper--img" :src="item.imgUrl" />
+			    <swiper-slide v-for="(item,index) of gallaryImgs" :key="index">
+			    	<img class="common-gallary__swiper--img" :src="item" />
 			    </swiper-slide>
 		  	</swiper>
 		 </div>
@@ -17,6 +17,9 @@ export default {
 	components:{
 		
 	},	
+	props:{
+		gallaryImgs:Array
+	},
 	data:function(){
 		return {
 			swiperOption:{
@@ -24,11 +27,6 @@ export default {
 					observeParents:true,
 					observer:true
 			},
-			list:[{
-				id:'00001',imgUrl:'http://i0.hdslb.com/bfs/archive/231eeec338447f0c2cf65a95a782dd55e2e32eb9.jpg'
-			},{
-				id:'00002',imgUrl:'http://i0.hdslb.com/bfs/archive/231eeec338447f0c2cf65a95a782dd55e2e32eb9.jpg'
-			}]
 		}
 	},
 	methods:{

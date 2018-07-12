@@ -9,9 +9,9 @@
 			{{item.text}}
 			<span v-show="item.title" class="iconfont detail-list__icon">&#xe6aa;</span>
 			<!--判断是否有数据-->
-			<div v-if="item.content">
+			<div v-if="item.children">
 				<!--有则使用自身作为组件（样式、逻辑(循环)相同）-->
-				<detail-list :list="item.content"></detail-list>
+				<detail-list :list="item.children"></detail-list>
 			</div>
 		</div>
 	</div>

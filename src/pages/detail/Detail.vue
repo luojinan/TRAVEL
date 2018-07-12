@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<detail-banner></detail-banner>
+		<detail-banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs"></detail-banner>
 		<detail-header></detail-header>
-		<detail-list :list="detailList"></detail-list>
+		<detail-list :list="categoryList"></detail-list>
 		<div class="test"></div>
 	</div>
 </template>
@@ -11,6 +11,7 @@
 import DetailBanner from './components/DetailBanner'
 import DetailHeader from './components/DetailHeader'
 import DetailList from './components/DetailList'
+import axios from 'axios'
 
 export default {
 	name:'Detail',
@@ -21,23 +22,33 @@ export default {
 	},	
 	data:function(){
 		return {
-			detailList:[{
-				title:'成人票',
-				content:[{
-					title:'成人三馆联票',
-					content:[{
-						text:'这是内容这是内容这是内容这是内容这是内容'
-					}]
-				},{
-					title:'成人五馆联票'
-				}]
-			},{
-				title:'学生票'
-			},{
-				title:'儿童票'
-			}]
+			sightName:'',
+			bannerImg:'',
+			gallaryImgs:[],
+			categoryList:[]
 		}
 	},
+	methods:{
+		getDatailInfo(){
+			//页面获取到路由传向后台
+			axios.get('static/mock/detail.json',{
+				params:{
+					id:this.$route.params.id
+				}
+			}).then(this.getDetailInfoSucc)
+		},
+		getDetailInfoSucc(res){
+			console.log(res)
+			const data = res.data.data
+			this.sightName=data.sightName
+			this.bannerImg = data.bannerImg
+			this.gallaryImgs = data.gallaryImgs
+			this.categoryList = data.categoryList
+		}
+	},
+	mounted(){
+		this.getDatailInfo()
+	}
 }
 </script>
 
