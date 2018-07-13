@@ -9,7 +9,7 @@
 					{{sightName}}
 				</div>
 				<div class="detail-banner__info--number">
-					<span class="iconfont">&#xe632;</span>
+					<span class="iconfont">&#xe637;</span>
 					{{gallaryImgs.length}}
 				</div>
 			</div>
