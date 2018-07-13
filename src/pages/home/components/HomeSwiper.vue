@@ -4,8 +4,8 @@
 		    <swiper-slide v-for="item of list" :key="item.id">
 		    	<img class="swiper-img" :src="item.imgUrl" />
 		    </swiper-slide>
-		    <div calss="swiper-pagination"  slot="pagination"></div>
-
+		    <div class="swiper-pagination"  slot="pagination"></div>
+			
 	  	</swiper>
 	</div>
 </template>
@@ -16,7 +16,8 @@
 		data:function(){
 			return {
 				swiperOption:{
-					pagination: '.swiper-pagination',
+					autoplay: 3000,
+			        pagination: '.swiper-pagination',
 				},
 				notNextTick: true,
 				//用本地图片不行？？？
@@ -32,7 +33,7 @@
 	/*修改轮播图组件的点css，不是局部css，所以要穿透>>>*/
 	/*在wrapper下的所有这个class通过控制台找到*/
 	.wrapper >>> .swiper-pagination-bullet-active{
-		background-color: red !important ;
+		background-color: #fff !important ;
 	}
 	.wrapper{
 		overflow: hidden;
