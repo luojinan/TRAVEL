@@ -42,6 +42,7 @@ export default {
 		//页面滚动事件
 		handleScroll(){
 			//获取页面滚动距离top的值
+			console.log('scroll');
 			const top = document.documentElement.scrollTop;
 			console.log(top);
 			//判断top值在某段区域 执行的方法，:style修改透明度
