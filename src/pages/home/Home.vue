@@ -46,19 +46,22 @@
 			//axios获取数据方法
 			getHomeInfo(){
 				//get  then回调
-				axios.get('static/mock/index.json?city=' + this.city)
+				axios.get('/api/index.json?city=' + this.city)	//配置json路径与后端链接是方便config
 					.then(this.getHomeInfoSucc)
 			},
-			//成功过去数据的回调函数
+			//成功获取数据的回调函数
+			//可以利用res数据的某项进行匹配获取数据
 			getHomeInfoSucc(res){
 				//console.log(res)
 				const data = res.data.data
-
-				this.headerList = data.city
-				this.swiperList = data.swiperList
-				this.iconList = data.iconList
-				this.recommendList = data.recommendList
-				this.pageList = data.pageList
+				//判断对象数据中的 ret 和 data对象数组
+				if(res.data.ret && res.data.data){
+					this.headerList = data.city
+					this.swiperList = data.swiperList
+					this.iconList = data.iconList
+					this.recommendList = data.recommendList
+					this.pageList = data.pageList
+				}				
 			}
 		},
 

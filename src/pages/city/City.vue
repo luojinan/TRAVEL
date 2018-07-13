@@ -41,14 +41,17 @@ export default {
 
 	methods:{
 		getCityInfo(){
-			axios.get('static/mock/city.json')
+			axios.get('/api/city.json')
 				.then(this.getCityInfoSucc)
 		},
 		getCityInfoSucc(res){
-			console.log(res)
+			//console.log(res)
 			const data = res.data.data
-			this.hotCities = data.hotCities
-			this.cities = data.cities
+			//判断json数据中的 ret 和 data对象数组
+			if(res.data.ret && data){
+				this.hotCities = data.hotCities
+				this.cities = data.cities
+			}
 		},
 
 		//接收子组件传递的数据，文本

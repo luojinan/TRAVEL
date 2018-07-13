@@ -31,19 +31,22 @@ export default {
 	methods:{
 		getDatailInfo(){
 			//页面获取到路由传向后台
-			axios.get('static/mock/detail.json',{
+			axios.get('/api/detail.json',{
 				params:{
 					id:this.$route.params.id
 				}
 			}).then(this.getDetailInfoSucc)
 		},
 		getDetailInfoSucc(res){
-			console.log(res)
+			//console.log(res)
 			const data = res.data.data
-			this.sightName=data.sightName
-			this.bannerImg = data.bannerImg
-			this.gallaryImgs = data.gallaryImgs
-			this.categoryList = data.categoryList
+			//判断json数据中 ret 和 data对象数组
+			if(res.data.ret && data){
+				this.sightName=data.sightName
+				this.bannerImg = data.bannerImg
+				this.gallaryImgs = data.gallaryImgs
+				this.categoryList = data.categoryList
+			}	
 		}
 	},
 	mounted(){
