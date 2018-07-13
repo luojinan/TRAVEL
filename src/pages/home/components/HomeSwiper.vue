@@ -18,6 +18,8 @@
 				swiperOption:{
 					autoplay: 3000,
 			        pagination: '.swiper-pagination',
+			        observeParents:true,	//解决页面首次加载，滑动错误的问题
+					observer:true			//原因：首次加载的区域计算，使显示错误
 				},
 				notNextTick: true,
 				//用本地图片不行？？？

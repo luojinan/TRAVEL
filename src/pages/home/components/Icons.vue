@@ -7,8 +7,6 @@
 					<p class="titlestyle">{{item.title}}</p>
 				</div>
 			</swiper-slide>
-
-			</swiper-slide>
 		</swiper>
 	</div>
 </template>
@@ -19,7 +17,8 @@
 		data:function(){
 			return {
 				swiperOption:{
-					pagination: '.swiper-pagination',
+					observeParents:true,
+					observer:true
 				},
 				notNextTick: true,
 			}
